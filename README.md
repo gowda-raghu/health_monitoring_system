@@ -23,3 +23,75 @@ simple and portable technology for the primary care and community based clinical
 the wide availability of low cost and small semiconductor components, and the advancement 
 of computer-based pulse wave analysis techniques.
 
+#MAX30102
+Maxim Integrated MAX30102 Sensor is a highly integrated pulse oximetry and heart rate monitor module. The MAX30102 includes internal LEDs, photodetectors, optical 
+elements, and low-noise electronics with ambient light rejection. This highly sensitive device 
+operates on a single 1.8V power supply and a separate 5.0V power supply for the internal 
+LEDs. Communication is through a standard I2C-compatible interface. This sensor can be shut 
+down through software with zero standby current, allowing the power rails to remain powered 
+at all times.
+![image](https://user-images.githubusercontent.com/87423535/201459984-17880adf-3ed4-4262-be8c-3f39b4ebe349.png)
+
+
+# BLOCK DIARGAM OF THE PROPOSED SYSTEM
+![image](https://user-images.githubusercontent.com/87423535/201459999-41927eac-bff4-4aba-b06a-a7eeb4fded11.png)
+
+
+#Heart Rate
+Heart rate is calculated by counting the number of systolic peaks per minute.
+![image](https://user-images.githubusercontent.com/87423535/201460031-ddb9f752-fdf3-47d9-913d-75c5353577fc.png)
+
+
+# Extraction of the signal from the MAX30102 Sensor via Rasberry PI
+The MAX30102 works by shining both lights onto the finger or earlobe (or essentially 
+anywhere where the skin isn’t too thick, so both lights can easily penetrate the tissue) and 
+measuring the amount of reflected light using a photodetector. This method of pulse 
+detection through light is called Photoplethysmogram.
+
+![image](https://user-images.githubusercontent.com/87423535/201460103-3c8cd24d-6bbf-49e4-8142-cddb52d389aa.png)
+
+The oxygenated hemoglobin (HbO2) in the arterial blood has the characteristic of absorbing 
+IR light. The redder the blood (the higher the hemoglobin), the more IR light is absorbed. As 
+the blood is pumped through the finger with each heartbeat, the amount of reflected light 
+changes, creating a changing waveform at the output of the photodetector. As you continue 
+to shine light and take photodetector readings, you quickly start to get a heart-beat (HR) 
+pulse reading.
+![image](https://user-images.githubusercontent.com/87423535/201460122-4893725f-488a-4c6b-90ac-e4e3ffde056c.png)
+
+#PPG CLEANING 
+![image](https://user-images.githubusercontent.com/87423535/201460134-8bf66a10-6e37-4c21-9783-7386d1278828.png)
+
+![image](https://user-images.githubusercontent.com/87423535/201460142-d0905155-3436-41aa-a20d-29cd15717803.png)
+
+
+#BP
+Blood pressure (BP), also referred to as Arterial blood pressure (ABP), is the pressure exerted 
+by circulating blood upon the walls of blood vessels.
+Datasets 
+The blood pressure dataset provides clean and valid signals for designing cuff-less blood 
+pressure estimation algorithms. The matlab files (.mat) contain raw electrocardiogram (ECG), 
+photoplethysmography (PPG), and arterial blood pressure (ABP) signals stored as cell 
+arrays of matrices where each cell is one record part. In each matrix, each row corresponds 
+to one signal channel:
+1: PPG signal, FS=125Hz; photoplethysmography from fingertip
+2: ABP signal, FS=125Hz; invasive arterial blood pressure (mmHg)
+3: ECG signal, FS=125Hz; electrocardiogram from channel II
+Each cell is a record. There might be more than one record per patient (which is not possible 
+to distinguish). However, records of the same patient appear next to each other. n-fold cross 
+test and train is suggested to reduce the chance of train set being contaminated by test 
+patients.
+BP signals are extracted from the mat file and store them in an array/list. Systole and 
+diastole are two phases of a heart beat. BP increases as the heart muscle contracts during 
+systole, where blood is pushed towards the periphery of the body and it decreases when the 
+heart relaxes to fill with blood during the diastole. Hence we take max(BP) to derive SBP and 
+min(BP) to get DBP.
+
+![image](https://user-images.githubusercontent.com/87423535/201460171-6584ff30-5ef7-4daf-b189-6de1f420d8aa.png)
+
+
+
+
+
+
+
+
