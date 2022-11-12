@@ -30,15 +30,20 @@ operates on a single 1.8V power supply and a separate 5.0V power supply for the 
 LEDs. Communication is through a standard I2C-compatible interface. This sensor can be shut 
 down through software with zero standby current, allowing the power rails to remain powered 
 at all times.
+
+
 ![image](https://user-images.githubusercontent.com/87423535/201459984-17880adf-3ed4-4262-be8c-3f39b4ebe349.png)
 
 
 # BLOCK DIARGAM OF THE PROPOSED SYSTEM
+
+
 ![image](https://user-images.githubusercontent.com/87423535/201459999-41927eac-bff4-4aba-b06a-a7eeb4fded11.png)
 
 
 #Heart Rate
 Heart rate is calculated by counting the number of systolic peaks per minute.
+
 ![image](https://user-images.githubusercontent.com/87423535/201460031-ddb9f752-fdf3-47d9-913d-75c5353577fc.png)
 
 
@@ -56,9 +61,11 @@ the blood is pumped through the finger with each heartbeat, the amount of reflec
 changes, creating a changing waveform at the output of the photodetector. As you continue 
 to shine light and take photodetector readings, you quickly start to get a heart-beat (HR) 
 pulse reading.
+
 ![image](https://user-images.githubusercontent.com/87423535/201460122-4893725f-488a-4c6b-90ac-e4e3ffde056c.png)
 
 #PPG CLEANING 
+
 ![image](https://user-images.githubusercontent.com/87423535/201460134-8bf66a10-6e37-4c21-9783-7386d1278828.png)
 
 ![image](https://user-images.githubusercontent.com/87423535/201460142-d0905155-3436-41aa-a20d-29cd15717803.png)
